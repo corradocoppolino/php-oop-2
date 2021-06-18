@@ -1,8 +1,6 @@
 <?php 
 
-    include_once __DIR__ .'/CreditCard.php';
-
-    class User extends CreditCard{
+    class User{
 
         public $name;
         public $surname;
@@ -10,21 +8,29 @@
         public $address;
         public $age;
         public $gender;
+        public $premium;
+        public $cart;
 
-        public function __construct($_name, $_surname, $_age){
+        public function __construct($_name, $_surname, $_age, $_premium){
 
             $this -> name = $_name;
             $this -> surname = $_surname;
             $this -> age = $_age;
+            $this -> premium = $_premium;
     
         }
 
-        public function insertCreditCard($_number, $_term, $_code){
+        public function isPremium(){
 
-            $this -> number = $_number;
-            $this -> term = $_term;
-            $this -> code = $_code;
+            if(!$this->premium){
 
+                return "Non sei un utente premium";
+
+            }else{
+
+                return "Sei un utente premium";
+
+            }
 
         }
 
