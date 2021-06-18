@@ -11,8 +11,8 @@
     $prod3 = new Product('Ipad 3','informatica','Tablet marchio Apple');
     $prod4 = new Product('Ipad 4','informatica','Tablet marchio Apple');
 
-    $user1 -> $cart = array($prod1,$prod2);
-    $user2 -> $cart = array($prod3,$prod4);
+    $user1 -> cart = array($prod1,$prod2);
+    $user2 -> cart = array($prod3,$prod4);
 
     $c1 = new CreditCard(123456677,"12/21",147);
     $c2 = new CreditCard(123456677,"12/21",147);
@@ -51,9 +51,13 @@
             <?php echo $c1->code ?> <br>
         Nel carrello hai:
 
-            <?php foreach($cart as $element) { ?>
+            <?php foreach($user1->cart as $element) { ?>
                 
-                <pre><?php var_dump($element); ?></pre>
+                <ul>
+                
+                    <li> <?php echo $element->nameProd ?> </li>
+
+                </ul>
 
             <?php } ?>
         
@@ -68,6 +72,18 @@
             <?php echo $c2->number ?>
             <?php echo $c2->term ?>
             <?php echo $c2->code ?>
+        Nel carrello hai:
+
+            <?php foreach($user2->cart as $element) { ?>
+    
+                <ul>
+                    
+                    <li> <?php echo $element->nameProd ?> </li>
+
+                </ul>
+
+            <?php } ?>
+
     </h2>
 
 </body>
