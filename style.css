@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+
+header{
+    
+    height: 70px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+header h1{
+    
+    color: white;
+
+}
+
+/* MAIN */
+
+main .container{
+    
+    height: 900px;
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+main .container .box{
+
+    width: calc(80% / 2);
+    height: 380px;
+    background-color: white;
+    padding-left: 50px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-radius: 10px;
+
+}
+
+main .container .box h4{
+
+    margin-bottom: 8px;
+    margin-top: 8px;
+
+}

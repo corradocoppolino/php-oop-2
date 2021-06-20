@@ -98,242 +98,259 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Shop</title>
   </head>
   <body>
+
     <header>
+
       <h1>Shop Online</h1>
+
     </header>
+
     <main>
 
+        <div class="container">
 
-      <!-- PRIMO UTENTE -->
+        <!-- PRIMO UTENTE -->
+        
+            <div class="box">
+            
+                <h4>INFORMAZIONI UTENTE</h4>
 
+                <p>
 
-      <h4>INFORMAZIONI UTENTE</h4>
+                    NOME: <?php echo $user1->name ?> <br>
+                    COGNOME: <?php echo $user1->surname ?> <br>
+                    SESSO: <?php echo $user1->gender ?> <br>
+                    ETA': <?php echo $user1->age ?> <br>
+                    INDIRIZZO: <?php echo $user1->address ?> 
 
-      <p>
-      
-            NOME: <?php echo $user1->name ?> <br>
-            COGNOME: <?php echo $user1->surname ?> <br>
-            SESSO: <?php echo $user1->gender ?> <br>
-            ETA': <?php echo $user1->age ?> <br>
-            INDIRIZZO: <?php echo $user1->address ?> 
-      
-      </p>
+                </p>
 
-      <h4>INFORMAZIONI CARTA</h4>
+                <h4>INFORMAZIONI CARTA</h4>
 
-      <p>
+                <p>
 
-            NUMERO CARTA: <?php echo $card1->number ?> <br>
-            SCADENZA: <?php echo $card1->expirationDate ?> <br>
-            CODICE SEGRETO: <?php echo $card1->code ?> <br>
+                    NUMERO CARTA: <?php echo $card1->number ?> <br>
+                    SCADENZA: <?php echo $card1->expirationDate ?> <br>
+                    CODICE SEGRETO: <?php echo $card1->code ?> <br>
 
-      </p>
+                </p>
 
-      <h4>CARRELLO</h4>
+                <h4>CARRELLO</h4>
 
-      <p>
-      
-            <?php foreach($user1->cart as $element) { ?>
+                <p>
+
+                    <?php foreach($user1->cart as $element) { ?>
+                        
+                        <ul>
+                        
+                            <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
+
+                        </ul>
+
+                    <?php } ?>
+
+                </p>
+
+                <h4>TOTALE</h4>
+
+                <?php foreach($user1->cart as $element) { ?>
+
+                    <?php $totale1 += $element->price ?>
+
+                <?php } ?>
+
+                <p>
+
+                    Il prezzo totale è: <?php echo $totale1 ?> $ 
+
+                </p>
+
+            </div>
+
+        <!-- SECONDO UTENTE -->
+
+            <div class="box">
+            
+                <h4>INFORMAZIONI UTENTE</h4>
+
+                <p>
+
+                    NOME: <?php echo $user2->name ?> <br>
+                    COGNOME: <?php echo $user2->surname ?> <br>
+                    SESSO: <?php echo $user2->gender ?> <br>
+                    ETA': <?php echo $user2->age ?> <br>
+                    INDIRIZZO: <?php echo $user2->address ?> 
+
+                </p>
+
+                <h4>INFORMAZIONI CARTA</h4>
+
+                <p>
+
+                    NUMERO CARTA: <?php echo $card2->number ?> <br>
+                    SCADENZA: <?php echo $card2->expirationDate ?> <br>
+                    CODICE SEGRETO: <?php echo $card2->code ?> <br>
+
+                </p>
+
+                <h4>CARRELLO</h4>
+
+                <p>
+
+                    <?php foreach($user2->cart as $element) { ?>
+                        
+                        <ul>
+                        
+                            <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
+
+                        </ul>
+
+                    <?php } ?>
+
+                </p>
+
+                <h4>TOTALE</h4>
+
+                <?php foreach($user2->cart as $element) { ?>
+
+                    <?php $totale2 += $element->price ?>
+
+                <?php } ?>
+
+                <p>
+
+                    Il prezzo totale è: <?php echo $totale2 ?> $ 
+
+                </p>
+
+            </div>
+
+        <!-- PRIMO UTENTE PREMIUM -->
+
+            <div class="box">
+
+                <h4>INFORMAZIONI UTENTE</h4>
+
+                <p>
+
+                    NOME: <?php echo $premiumUser1->name ?> <br>
+                    COGNOME: <?php echo $premiumUser1->surname ?> <br>
+                    SESSO: <?php echo $premiumUser1->gender ?> <br>
+                    ETA': <?php echo $premiumUser1->age ?> <br>
+                    INDIRIZZO: <?php echo $premiumUser1->address ?> 
+
+                </p>
+
+                <h4>INFORMAZIONI CARTA</h4>
+
+                <p>
+
+                    NUMERO CARTA: <?php echo $card3->number ?> <br>
+                    SCADENZA: <?php echo $card3->expirationDate ?> <br>
+                    CODICE SEGRETO: <?php echo $card3->code ?> <br>
+
+                </p>
+
+                <h4>CARRELLO</h4>
+
+                <p>
+
+                    <?php foreach($premiumUser1->cart as $element) { ?>
+                        
+                        <ul>
+                        
+                            <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
+
+                        </ul>
+
+                    <?php } ?>
+
+                </p>
+
+                <h4>TOTALE</h4>
+
+                <?php foreach($premiumUser1->cart as $element) { ?>
+
+                    <?php $totale3 += $element->price ?>
+                    <?php $totaleFinale3 = $totale3 * $premiumUser1->getDiscount()?>
+
+                <?php } ?>
+
+                <p>
+
+                    Grazie al tuo abbonamento <?php echo $premiumUser1->category ?> il prezzo totale è: <?php echo $totaleFinale3 ?> $ 
+
+                </p>
+            
+            </div>
+
+        <!-- SECONDO UTENTE PREMIUM -->
+
+            <div class="box">
+            
+                <h4>INFORMAZIONI UTENTE</h4>
+
+                <p>
                 
-                <ul>
+                        NOME: <?php echo $premiumUser2->name ?> <br>
+                        COGNOME: <?php echo $premiumUser2->surname ?> <br>
+                        SESSO: <?php echo $premiumUser2->gender ?> <br>
+                        ETA': <?php echo $premiumUser2->age ?> <br>
+                        INDIRIZZO: <?php echo $premiumUser2->address ?> 
                 
-                    <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
+                </p>
 
-                </ul>
+                <h4>INFORMAZIONI CARTA</h4>
 
-            <?php } ?>
+                <p>
 
-      </p>
+                        NUMERO CARTA: <?php echo $card4->number ?> <br>
+                        SCADENZA: <?php echo $card4->expirationDate ?> <br>
+                        CODICE SEGRETO: <?php echo $card4->code ?> <br>
 
-      <h4>TOTALE</h4>
+                </p>
 
-      <?php foreach($user1->cart as $element) { ?>
-    
-            <?php $totale1 += $element->price ?>
+                <h4>CARRELLO</h4>
 
-      <?php } ?>
-
-      <p>
-      
-            Il prezzo totale è: <?php echo $totale1 ?> $ 
-      
-      </p>
-
-
-      <!-- SECONDO UTENTE -->
-
-
-      <h4>INFORMAZIONI UTENTE</h4>
-
-      <p>
-      
-            NOME: <?php echo $user2->name ?> <br>
-            COGNOME: <?php echo $user2->surname ?> <br>
-            SESSO: <?php echo $user2->gender ?> <br>
-            ETA': <?php echo $user2->age ?> <br>
-            INDIRIZZO: <?php echo $user2->address ?> 
-      
-      </p>
-
-      <h4>INFORMAZIONI CARTA</h4>
-
-      <p>
-
-            NUMERO CARTA: <?php echo $card2->number ?> <br>
-            SCADENZA: <?php echo $card2->expirationDate ?> <br>
-            CODICE SEGRETO: <?php echo $card2->code ?> <br>
-
-      </p>
-
-      <h4>CARRELLO</h4>
-
-      <p>
-      
-            <?php foreach($user2->cart as $element) { ?>
+                <p>
                 
-                <ul>
+                        <?php foreach($premiumUser2->cart as $element) { ?>
+                            
+                            <ul>
+                            
+                                <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
+
+                            </ul>
+
+                        <?php } ?>
+
+                </p>
+
+                <h4>TOTALE</h4>
+
+                <?php foreach($premiumUser2->cart as $element) { ?>
                 
-                    <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
+                        <?php $totale4 += $element->price ?>
+                        <?php $totaleFinale4= $totale4 * $premiumUser2->getDiscount()?>
 
-                </ul>
+                <?php } ?>
 
-            <?php } ?>
-
-      </p>
-
-      <h4>TOTALE</h4>
-
-      <?php foreach($user2->cart as $element) { ?>
-    
-            <?php $totale2 += $element->price ?>
-
-      <?php } ?>
-
-      <p>
-      
-            Il prezzo totale è: <?php echo $totale2 ?> $ 
-      
-      </p>
-
-
-      <!-- PRIMO UTENTE PREMIUM -->
-
-
-      <h4>INFORMAZIONI UTENTE</h4>
-
-      <p>
-      
-            NOME: <?php echo $premiumUser1->name ?> <br>
-            COGNOME: <?php echo $premiumUser1->surname ?> <br>
-            SESSO: <?php echo $premiumUser1->gender ?> <br>
-            ETA': <?php echo $premiumUser1->age ?> <br>
-            INDIRIZZO: <?php echo $premiumUser1->address ?> 
-      
-      </p>
-
-      <h4>INFORMAZIONI CARTA</h4>
-
-      <p>
-
-            NUMERO CARTA: <?php echo $card3->number ?> <br>
-            SCADENZA: <?php echo $card3->expirationDate ?> <br>
-            CODICE SEGRETO: <?php echo $card3->code ?> <br>
-
-      </p>
-
-      <h4>CARRELLO</h4>
-
-      <p>
-      
-            <?php foreach($premiumUser1->cart as $element) { ?>
+                <p>
                 
-                <ul>
+                        Grazie al tuo abbonamento <?php echo $premiumUser2->category ?> il prezzo totale è: <?php echo $totaleFinale4 ?> $ 
                 
-                    <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
-
-                </ul>
-
-            <?php } ?>
-
-      </p>
-
-      <h4>TOTALE</h4>
-
-      <?php foreach($premiumUser1->cart as $element) { ?>
-    
-            <?php $totale3 += $element->price ?>
-            <?php $totaleFinale3 = $totale3 * $premiumUser1->getDiscount()?>
-
-      <?php } ?>
-
-      <p>
-      
-            Grazie al tuo abbonamento <?php echo $premiumUser1->category ?> il prezzo totale è: <?php echo $totaleFinale3 ?> $ 
-      
-      </p>
-
-
-      <!-- SECONDO UTENTE PREMIUM -->
-
-
-      <h4>INFORMAZIONI UTENTE</h4>
-
-      <p>
-      
-            NOME: <?php echo $premiumUser2->name ?> <br>
-            COGNOME: <?php echo $premiumUser2->surname ?> <br>
-            SESSO: <?php echo $premiumUser2->gender ?> <br>
-            ETA': <?php echo $premiumUser2->age ?> <br>
-            INDIRIZZO: <?php echo $premiumUser2->address ?> 
-      
-      </p>
-
-      <h4>INFORMAZIONI CARTA</h4>
-
-      <p>
-
-            NUMERO CARTA: <?php echo $card4->number ?> <br>
-            SCADENZA: <?php echo $card4->expirationDate ?> <br>
-            CODICE SEGRETO: <?php echo $card4->code ?> <br>
-
-      </p>
-
-      <h4>CARRELLO</h4>
-
-      <p>
-      
-            <?php foreach($premiumUser2->cart as $element) { ?>
-                
-                <ul>
-                
-                    <li> <?php echo $element->name ?> <?php echo $element->category ?> <?php echo $element->price ?> $ </li>
-
-                </ul>
-
-            <?php } ?>
-
-      </p>
-
-      <h4>TOTALE</h4>
-
-      <?php foreach($premiumUser2->cart as $element) { ?>
-    
-            <?php $totale4 += $element->price ?>
-            <?php $totaleFinale4= $totale4 * $premiumUser2->getDiscount()?>
-
-      <?php } ?>
-
-      <p>
-      
-            Grazie al tuo abbonamento <?php echo $premiumUser2->category ?> il prezzo totale è: <?php echo $totaleFinale4 ?> $ 
-      
-      </p>
+                </p>
+            
+            </div>
+        
+        </div>
 
     </main>
     
   </body>
-  
+
 </html>
