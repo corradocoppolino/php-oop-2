@@ -1,6 +1,6 @@
 <?php 
 
-    class User{
+  class User{
 
         public $name;
         public $surname;
@@ -8,51 +8,26 @@
         public $address;
         public $age;
         public $gender;
-        public $premium;
-        public $cart;
-        public $discount;
+        public $creditCard;
+        public $cart = array();
 
-        public function __construct($_name, $_surname, $_age, $_premium){
 
-            $this -> name = $_name;
-            $this -> surname = $_surname;
-            $this -> age = $_age;
-            $this -> premium = $_premium;
-
+        public function __construct($_name, $_surname)
+        {
+          $this->name = $_name;
+          $this->surname = $_surname;
         }
 
-        public function isPremium(){
-
-            if(!$this->premium){
-
-                $this -> discount = 1;
-                return "Non sei un utente premium, quindi non hai diritto allo sconto speciale";
-
-            }else{
-
-                $this -> discount = 0.80;
-                return "Sei un utente premium, quindi hai diritto al 20% di sconto sul totale finale";
-
-            }
-
+        /* aggiunge all'user selezionato l'oggetto CreditCard */
+        public function getCreditCard($card){
+          $this->creditCard = $card;
         }
-
-        public function isPremiumDiscount(){
-
-            if(!$this->premium){
-
-                return $this -> discount = 1;
-
-            }else{
-
-                return $this -> discount = 0.80;
-
-            }
-
+        /* aggiunge all'user selezionato l'oggetto Product */
+        public function addProduct($prod){
+          $this->cart[] = $prod;  
         }
-
         
+  }
 
-    }
 
 ?>
